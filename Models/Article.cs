@@ -15,5 +15,6 @@ namespace NewsWebApp.Models
         [DisplayName("Display Order")]
         [Range(1,20,ErrorMessage = "Order must be between 1 and 20")]
         public int DisplayOrder { get; set; }
+        public string Author { get; set; }
     }
 }
