@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using NewsWebApp.Data;
 using NewsWebApp.Models;
 using System.Diagnostics;
 
@@ -8,14 +9,20 @@ namespace NewsWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        /*public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }*/
+        private readonly ApplicationDBContext _db;
+        public HomeController(ApplicationDBContext db)
+        {
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Article> objArticleList = _db.Articles.OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            return View(objArticleList);
         }
 
         public IActionResult Privacy()
