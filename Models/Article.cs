@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewsWebApp.Models
 {
@@ -9,6 +10,7 @@ namespace NewsWebApp.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Title is requied!")]
         public string Title { get; set; }
+        [Column(TypeName = "varchar(MAX)")]
         [Required(ErrorMessage = "Content is requied")]
         [DisplayName("Article Content")]
         public string Content { get; set; }
