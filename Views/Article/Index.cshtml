@@ -1,16 +1,20 @@
 ﻿@model Article
-<div class="container align-content-center border">
-    <div class="text-center  mt-4 p-5 ">
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container align-content-center border mt-4 p-5">
+    <span class="text-center  mt-4 p-5 ">
         <h1><b>@Model.Title</b></h1>
-    </div>
-    <div>
+    </span>
+    <span>
         <h5>
             @Model.Author
         </h5>
-    </div>
-    <div>
+    </span>
+    <span>
         <h4>
             <p>@Model.Content</p>
         </h4>
-    </di>
+    </span>
 </div>
