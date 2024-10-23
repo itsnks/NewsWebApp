@@ -8,15 +8,12 @@ namespace NewsWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        /*public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }*/
         private readonly ApplicationDBContext _db;
-        public HomeController(ApplicationDBContext db)
+
+        public HomeController(ApplicationDBContext db, ILogger<HomeController> logger)
         {
             _db = db;
+            _logger = logger;
         }
 
 //  Returns the top 20 articles as a list object based on DisplayOrder whenever index view of home controller is called
