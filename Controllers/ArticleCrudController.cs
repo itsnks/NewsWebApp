@@ -16,5 +16,21 @@ namespace NewsWebApp.Controllers
             List<Article> ArticleList = _db.Articles.OrderBy(obj => obj.DisplayOrder).ToList();
             return View(ArticleList);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Article obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Articles.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Article Created Successfully!";
+                return RedirectToAction("Index", "ArticleCrud");
+            }
+            return View();
+        }
     }
 }
