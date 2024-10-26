@@ -32,5 +32,59 @@ namespace NewsWebApp.Controllers
             }
             return View();
         }
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Article? articleFromDB = _db.Articles.Find(id);
+            if (articleFromDB == null)
+            {
+                return NotFound();
+            }
+            return View(articleFromDB);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Article obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Articles.Update(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Category Updated Successfully!";
+                return RedirectToAction("Index", "ArticleCrud");
+            }
+            return View();
+        }
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Article? articleFromDB = _db.Articles.Find(id);
+
+            if (articleFromDB == null)
+            {
+                return NotFound();
+            }
+            return View(articleFromDB);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+            Article? obj = _db.Articles.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Articles.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Article Deleted Successfully!";
+            return RedirectToAction("Index");
+        }
     }
 }
