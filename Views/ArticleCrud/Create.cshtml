@@ -3,7 +3,7 @@
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Create Category</h2>
+            <h2 class="text-primary">Create Article</h2>
             <hr />
         </div>
         @* <div asp-validation-summary="ModelOnly"></div> *@
@@ -17,12 +17,31 @@
             <input asp-for="DisplayOrder" type="text" class="form-control" />
             <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Author" class="p-0"></label>
+            <input asp-for="Author" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Content" class="p-0"></label>
+            <textarea asp-for="Content" type="text" class="form-control article-content-input"> </textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Category" class="p-0"></label>
+            <input asp-for="Category" type="text" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Description" class="p-0"></label>
+            <input asp-for="Description" type="text" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
         <div class="row">
             <div class="col-6 col-md-3">
                 <button type="submit" class="btn btn-primary form-control">Create</button>
             </div>
             <div class="col-6 col-md-3">
-                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">Back to List</a>
+                <a asp-controller="ArticleCrud" asp-action="Index" class="btn btn-outline-secondary border form-control">Back to List</a>
             </div>
         </div>
 
