@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.article-content-input {
+    height: 150px;
+    width: 100%;
+}
