@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NewsWebApp.Models;
 
 namespace NewsWebApp.Data
@@ -10,5 +11,12 @@ namespace NewsWebApp.Data
             
         }
         public DbSet <Article> Articles { get; set; }
+    }
+    public class UserDBContext : IdentityDbContext<Users>
+    {
+        public UserDBContext(DbContextOptions<UserDBContext> options) : base (options)
+        {
+            
+        }
     }
 }
