@@ -19,6 +19,34 @@ namespace NewsWebApp.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Users users = new Users
+                {
+                    FullName = model.Name,
+                    Email = model.Email,
+                    UserName = model.Email,
+                };
+                var result = await userManager.CreateAsync(users, model.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View(model);
+                }
+            }
+            return View(model);
+        }
         public IActionResult Login()
         {
             return View();
