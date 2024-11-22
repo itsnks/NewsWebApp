@@ -19,6 +19,9 @@ namespace NewsWebApp.Controllers
         {
             return View();
         }
+        // If the modelstate is valid,the usermanager creates a user as
+        // received from RegisterViewModel into the database defined by the model Users 
+        
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -51,6 +54,9 @@ namespace NewsWebApp.Controllers
         {
             return View();
         }
+        // If the modelstate is valid, uses signInManager to sign in the user based on
+        // the details received from LoginViewModel, the last flag is set to false to
+        // not lock out the user on signin failure
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
