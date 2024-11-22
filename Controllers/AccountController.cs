@@ -34,6 +34,7 @@ namespace NewsWebApp.Controllers
                     UserName = model.Email,
                 };
                 var result = await userManager.CreateAsync(users, model.Password);
+                await userManager.AddToRoleAsync(users, "Browser");
 
                 if (result.Succeeded)
                 {
