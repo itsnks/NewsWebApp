@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models;
@@ -23,7 +24,7 @@ namespace NewsWebApp.Controllers
             List<Article> ArticleList = _db.Articles.OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
             return View(ArticleList);
         }
-
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
