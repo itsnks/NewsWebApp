@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace NewsWebApp.ViewModels
 {
@@ -16,6 +17,7 @@ namespace NewsWebApp.ViewModels
         public string Password { get; set; }
         [Required(ErrorMessage = "Please type the password again!")]
         [DataType(DataType.Password)]
+        [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
 
     }
