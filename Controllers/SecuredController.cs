@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace NewsWebApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Creator,Admin")]
     public class SecuredController : Controller
     {
         public IActionResult Index()
