@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models;
 
 namespace NewsWebApp.Controllers
 {
+    [Authorize(Roles = "Creator,Admin")]
     public class ArticleCrudController : Controller
     {
         private readonly ApplicationDBContext _db;
