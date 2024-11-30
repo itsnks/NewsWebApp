@@ -11,7 +11,9 @@
     @foreach (var obj in Model.Take(3))
     {
         <span class="container row mt-4 border p-5 mt-5 align-content-center text-center">
-            <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id"><h1><b>@obj.Title</b></h1></a>
+            <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                <h1><b>@obj.Title</b></h1>
+            </a>
         </span>
     }
 </div>
@@ -32,7 +34,9 @@
         @foreach (var obj in Model.Skip(5).Take(3))
         {
             <span class="col-md-4 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id"><h3><b>@obj.Title</b></h3></a>
+                <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                    <h3><b>@obj.Title</b></h3>
+                </a>
             </span>
         }
     </div>
