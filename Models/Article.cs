@@ -21,5 +21,7 @@ namespace NewsWebApp.Models
         public string ?Category { get;set; }
         public string ?Description { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
+        [DisplayName("Image URL (leave empty if there is no image)")]
+        public string ?ImageLink { get; set; }
     }
 }
