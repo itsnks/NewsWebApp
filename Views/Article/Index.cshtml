@@ -19,6 +19,10 @@
         <div>
             @Html.Raw(Model.Content)
         </div>
-        <img src="~/images/static/placeHolderImage.png" />
+
+        @if (Model.ImageLink is not null)
+        {
+            <img src="@Model.ImageLink" />
+        }
     </span>
 </div>
