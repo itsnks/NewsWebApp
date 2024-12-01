@@ -1,5 +1,5 @@
 ﻿<!-- model takes the list of top 20 articles based on display order, displays titles of first 3 single row each, the next 2 in the same row and the 3
-    following in the next row
+following in the next row
 -->
 
 @{
@@ -7,37 +7,100 @@
 }
 @model List<Article>
 
-<div class="container">
-    @foreach (var obj in Model.Take(3))
-    {
-        <span class="container row mt-4 border p-5 mt-5 align-content-center text-center">
-            <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-                <h1><b>@obj.Title</b></h1>
-            </a>
-        </span>
-    }
+<div class="container c1">
+    <a class="news news-1" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h1>
+            This is today's headline.
+            If the headline is too long the remaining text will just disappear.
+            Just click on the link to go to the news page and read the long title.
+        </h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta alias non dolorem minima? Nesciunt ipsam, atque eius provident magni veniam!</p>
+        <div>
+            <h6 class="author">Aayushman Maharjan</h6>
+            <h6 class="date">DD MMMM YYYY</h6>
+        </div>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Trying another long headline to see if the trimming works.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
 </div>
 
-<div class="container">
-    <div class="row">
-        @foreach (var obj in Model.Skip(3).Take(2))
-        {
-            <span class="col-md-6 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="article" asp-action="index" asp-route-id="@obj.Id"><h3><b>@obj.Title</b></h3></a>
-            </span>
-        }
-    </div>
+<h1>#Hashtag</h1>
+
+<div class="container c2">
+    <a class="news news-1" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h1>
+            This is today's headline.
+            If the headline is too long the remaining text will just disappear.
+            Just click on the link to go to the news page and read the long title.
+        </h1>
+        <div class="dateandauthor">
+            <h6 class="author">Aayushman Maharjan</h6>
+            <h6 class="date">DD MMMM YYYY</h6>
+        </div>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Trying another long headline to see if the trimming works.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <h2>Trying another long headline to see if the trimming works.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
 </div>
 
-<div class="container">
-    <div class="row">
-        @foreach (var obj in Model.Skip(5).Take(3))
-        {
-            <span class="col-md-4 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-                    <h3><b>@obj.Title</b></h3>
-                </a>
-            </span>
-        }
-    </div>
+<h1>#Hashtag</h1>
+
+<div class="container c3">
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <img src="~/images/static/placeHolderImage.png">
+        <h2>Trying another long headline to see if the trimming works.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
+    <a class="news news-x" href="news-page.html">
+        <h2>Headline goes here.</h2>
+        <h6 class="date">DD MMMM YY</h6>
+    </a>
 </div>

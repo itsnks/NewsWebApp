@@ -26,3 +26,182 @@ body {
     height: 150px;
     width: 100%;
 }
+
+:root {
+    --c1-rows: auto auto;
+    --c1-n1-rows: repeat(4, auto);
+    --c1-nx-rows: 14.2em 4.4em auto;
+    --c2-rows: repeat(4, auto);
+    --c2-n1-rows: 22em 14em auto;
+    --c2-nx-columns: 1fr 2fr;
+    --c2-nx-rows: 4em auto;
+    --c3-rows: repeat(3, auto);
+    --c3-nx-columns: 1fr 2fr;
+    --c3-nx-rows: 8.5em auto;
+    /* Portrait mode settings */
+    --c1-rows-p: repeat(4, auto);
+    --c2-rows-p: repeat(5, auto);
+    --c3-rows-p: repeat(5, auto);
+}
+
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1, h2, h6, p {
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.author {
+    float: left;
+    text-align: left;
+}
+
+.date {
+    text-align: right;
+    align-self: flex-end;
+}
+
+/* ------------------------------------------------------- */
+
+.custom-container {
+    display: grid;
+    gap: 5px;
+    text-align: center;
+    justify-content: stretch;
+}
+
+.news {
+    display: grid;
+    border: 3px solid black;
+}
+
+.news-1 h1 {
+    color: white;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+/* ------------------------------------------------------- */
+/* Container 1 */
+/* ------------------------------------------------------- */
+
+.c1 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: var(--c1-rows);
+}
+
+    .c1 .news-1 {
+        grid-area: 1 / 1 / 2 / 4;
+        grid-template-rows: var(--c1-n1-rows);
+    }
+
+        .c1 .news-1 img {
+            grid-area: 1 / 1 / 3 / 1;
+        }
+
+        .c1 .news-1 h1 {
+            grid-area: 2 / 1 / 3 / 1;
+        }
+
+    .c1 .news-x {
+        grid-template-rows: var(--c1-nx-rows);
+    }
+
+/* ------------------------------------------------------- */
+/* Container 2 */
+/* ------------------------------------------------------- */
+
+.c2 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: var(--c2-rows);
+}
+
+    .c2 .news-1 {
+        grid-area: 1 / 1 / 5 / 2;
+        grid-template-rows: var(--c2-n1-rows);
+    }
+
+        .c2 .news-1 img {
+            grid-area: 1 / 1 / 4 / 2;
+        }
+
+        .c2 .news-1 h1 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .c2 .news-1 .dateandauthor {
+            grid-area: 3 / 1 / 4 / 2;
+            color: white;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        }
+
+
+    .c2 .news-x {
+        grid-template-columns: var(--c2-nx-columns);
+        grid-template-rows: var(--c2-nx-rows);
+    }
+
+    .c2 img {
+        grid-area: 1 / 1 / 3 / 2;
+    }
+
+/* ------------------------------------------------------- */
+/* Container 3 */
+/* ------------------------------------------------------- */
+
+.c3 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: var(--c3-rows);
+}
+
+    .c3 .news-x {
+        grid-template-columns: var(--c3-nx-columns);
+        grid-template-rows: var(--c3-nx-rows);
+    }
+
+    .c3 img {
+        grid-area: 1 / 1 / 3 / 2;
+    }
+
+    /* ------------------------------------------------------- */
+
+    .c3 .news-x:not(:has(img)), .c2 .news-x:not(:has(img)) {
+        grid-template-columns: auto;
+    }
+
+/* ------------------------------------------------------- */
+
+@media (max-width: 60em) {
+    .c1 {
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--c1-rows-p);
+    }
+
+    .c2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--c2-rows-p);
+    }
+
+    .c3 {
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--c3-rows-p);
+    }
+
+    .c1 .news-1, .c2 .news-1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+}
