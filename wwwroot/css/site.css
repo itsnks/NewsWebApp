@@ -44,10 +44,10 @@ body {
     --c3-rows-p: repeat(5, auto);
 }
 
-body {
+/*body {
     margin-left: 15%;
     margin-right: 15%;
-}
+}*/
 
 img {
     width: 100%;
@@ -78,7 +78,7 @@ h1, h2, h6, p {
 
 /* ------------------------------------------------------- */
 
-.custom-container {
+.container-custom {
     display: grid;
     gap: 5px;
     text-align: center;
