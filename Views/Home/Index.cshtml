@@ -1,5 +1,5 @@
 ﻿<!-- model takes the list of top 20 articles based on display order, displays titles of first 3 single row each, the next 2 in the same row and the 3
-    following in the next row
+following in the next row
 -->
 
 @{
@@ -8,36 +8,35 @@
 @model List<Article>
 
 <div class="container">
-    @foreach (var obj in Model.Take(3))
+    @foreach (var obj in Model.Take(2))
     {
         <span class="container row mt-4 border p-5 mt-5 align-content-center text-center">
             <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
                 <h1><b>@obj.Title</b></h1>
+                <div>
+                    @if (obj.ImageLink is not null){
+                        <img src="@obj.ImageLink" />
+                    }
+                </div>
             </a>
         </span>
     }
 </div>
 
-<div class="container">
+<div class="container sub-headline-container">
     <div class="row">
-        @foreach (var obj in Model.Skip(3).Take(2))
+        @foreach (var obj in Model.Skip(2).Take(3))
         {
-            <span class="col-md-6 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="article" asp-action="index" asp-route-id="@obj.Id"><h3><b>@obj.Title</b></h3></a>
-            </span>
-        }
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        @foreach (var obj in Model.Skip(5).Take(3))
-        {
-            <span class="col-md-4 row mt-4 border p-5 mt-5 text-center">
+            @if (obj.ImageLink is null)
+            {
+                obj.ImageLink = "/images/static/placeHolderImage.png";
+            }
+            <div class="col-md-4 row mt-4 border p-5 mt-5 text-center news-x">
                 <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                    <img src="@obj.ImageLink" />
                     <h3><b>@obj.Title</b></h3>
                 </a>
-            </span>
+            </div>
         }
     </div>
 </div>
