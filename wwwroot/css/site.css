@@ -1,3 +1,20 @@
+:root {
+    --c1-rows: auto auto;
+    --c1-n1-rows: repeat(4, auto);
+    --c1-nx-rows: 14.2em 4.4em auto;
+    --c2-rows: repeat(4, auto);
+    --c2-n1-rows: 22em 14em auto;
+    --c2-nx-columns: 1fr 2fr;
+    --c2-nx-rows: 4em auto;
+    --c3-rows: repeat(3, auto);
+    --c3-nx-columns: 1fr 2fr;
+    --c3-nx-rows: 8.5em auto;
+    /* Portrait mode settings */
+    --c1-rows-p: repeat(4, auto);
+    --c2-rows-p: repeat(5, auto);
+    --c3-rows-p: repeat(5, auto);
+}
+
 html {
   font-size: 14px;
 }
@@ -25,4 +42,18 @@ body {
 .article-content-input {
     height: 150px;
     width: 100%;
+}
+
+.sub-headline-container {
+
+}
+
+.sub-headline-container .news-x {
+    grid-template-rows: var(--c1-nx-rows);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
