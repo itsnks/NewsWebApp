@@ -56,14 +56,18 @@ img {
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
+    /*color: inherit;*/
+    text-decoration: none;
 }
 
 h1, h2, h6, p {
     margin: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+h6, p{
+    color: black;
 }
 
 .author {
@@ -80,14 +84,14 @@ h1, h2, h6, p {
 
 .container-custom {
     display: grid;
-    gap: 5px;
+    gap: 20px;
     text-align: center;
     justify-content: stretch;
 }
 
 .news {
     display: grid;
-    border: 3px solid black;
+    /*border: 3px solid black;*/
 }
 
 .news-1 h1 {
