@@ -8,10 +8,29 @@ following in the next row
 @model List<Article>
 
 <div class="container-custom c1">
-    <a class="news news-1" href="news-page.html">
+    @foreach (var obj in Model.Take(1)){
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h1 class="p-2">
+                @obj.Title
+            </h1>
+            <p>
+                @obj.Description
+            </p>
+            <div>
+                <h6 class="author">@obj.Author</h6>
+                <h6 class="date">@obj.CreatedDate</h6>
+            </div>
+        </a>
+    }
+    @* <a class="news news-1" href="news-page.html">
         <img src="~/images/static/placeHolderImage.png">
-        <h1>
-            This is today's headline.
+        <h1 class="p-2">
+            नेपाली हेडलाईन यो हाम्रो न्यू वेबसाईट को हेडलाईन हो
             If the headline is too long the remaining text will just disappear.
             Just click on the link to go to the news page and read the long title.
         </h1>
@@ -20,10 +39,24 @@ following in the next row
             <h6 class="author">Aayushman Maharjan</h6>
             <h6 class="date">DD MMMM YYYY</h6>
         </div>
-    </a>
-    <a class="news news-x" href="news-page.html">
+    </a> *@
+    @foreach (var obj in Model.Skip(1).Take(3))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+                <h6 class="date">@obj.CreatedDate</h6>
+        </a>
+    }
+    @* <a class="news news-x" href="news-page.html">
         <img src="~/images/static/placeHolderImage.png">
-        <h2>Headline goes here.</h2>
+        <h2 class="p-2">नेपाली हेडलाईन यो हाम्रो न्यू वेबसाईट को हेडलाईन हो </h2>
         <h6 class="date">DD MMMM YY</h6>
     </a>
     <a class="news news-x" href="news-page.html">
@@ -35,25 +68,48 @@ following in the next row
         <img src="~/images/static/placeHolderImage.png">
         <h2>Headline goes here.</h2>
         <h6 class="date">DD MMMM YY</h6>
-    </a>
+    </a> *@
 </div>
 
-<h1 class="p-5">#Hashtag</h1>
+<h1 class="p-5">Some Category</h1>
 
 <div class="container-custom c2">
-    <a class="news news-1" href="news-page.html">
+    @foreach (var obj in Model.Skip(4).Take(1))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h1 class="p-2">
+                @obj.Title
+            </h1>
+        </a>
+    }
+@*     <a class="news news-1" href="news-page.html">
         <img src="~/images/static/placeHolderImage.png">
         <h1>
             This is today's headline.
             If the headline is too long the remaining text will just disappear.
             Just click on the link to go to the news page and read the long title.
         </h1>
-        <div class="dateandauthor">
-            <h6 class="author">Aayushman Maharjan</h6>
-            <h6 class="date">DD MMMM YYYY</h6>
-        </div>
-    </a>
-    <a class="news news-x" href="news-page.html">
+    </a> *@
+    @foreach (var obj in Model.Skip(5).Take(4))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            <h6 class="date">@obj.CreatedDate</h6>
+        </a>
+    }
+ @*    <a class="news news-x" href="news-page.html">
         <img src="~/images/static/placeHolderImage.png">
         <h2>Headline goes here.</h2>
         <h6 class="date">DD MMMM YY</h6>
@@ -72,13 +128,27 @@ following in the next row
         <img src="~/images/static/placeHolderImage.png">
         <h2>Trying another long headline to see if the trimming works.</h2>
         <h6 class="date">DD MMMM YY</h6>
-    </a>
+    </a> *@
 </div>
 
 <h1 class="p-5">#Hashtag</h1>
 
 <div class="container-custom c3">
-    <a class="news news-x" href="news-page.html">
+    @foreach (var obj in Model.Skip(9).Take(6))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            <h6 class="date">@obj.CreatedDate</h6>
+        </a>
+    }
+@*     <a class="news news-x" href="news-page.html">
         <img src="~/images/static/placeHolderImage.png">
         <h2>Headline goes here.</h2>
         <h6 class="date">DD MMMM YY</h6>
@@ -103,5 +173,5 @@ following in the next row
     <a class="news news-x" href="news-page.html">
         <h2>Headline goes here.</h2>
         <h6 class="date">DD MMMM YY</h6>
-    </a>
+    </a> *@
 </div>
