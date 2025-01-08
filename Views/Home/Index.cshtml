@@ -6,8 +6,10 @@ following in the next row
     ViewData["Title"] = "Home";
 }
 @model List<Article>
-
-<div class="container-custom c1">
+<h1 class="p-5">
+    Headlines
+</h1>
+<div class="container-custom c1 container row border p-5 align-content-center text-center">
     @foreach (var obj in Model.Take(1)){
         @if (obj.ImageLink is null)
         {
@@ -18,7 +20,7 @@ following in the next row
             <h1 class="p-2">
                 @obj.Title
             </h1>
-            <p>
+            <p class="description-text">
                 @obj.Description
             </p>
             <div>
@@ -27,19 +29,7 @@ following in the next row
             </div>
         </a>
     }
-    @* <a class="news news-1" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h1 class="p-2">
-            नेपाली हेडलाईन यो हाम्रो न्यू वेबसाईट को हेडलाईन हो
-            If the headline is too long the remaining text will just disappear.
-            Just click on the link to go to the news page and read the long title.
-        </h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta alias non dolorem minima? Nesciunt ipsam, atque eius provident magni veniam!</p>
-        <div>
-            <h6 class="author">Aayushman Maharjan</h6>
-            <h6 class="date">DD MMMM YYYY</h6>
-        </div>
-    </a> *@
+
     @foreach (var obj in Model.Skip(1).Take(3))
     {
         @if (obj.ImageLink is null)
@@ -51,29 +41,14 @@ following in the next row
             <h2 class="p-2">
                 @obj.Title
             </h2>
-                <h6 class="date">@obj.CreatedDate</h6>
+            @* <h6 class="date">@obj.CreatedDate</h6> *@
         </a>
     }
-    @* <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2 class="p-2">नेपाली हेडलाईन यो हाम्रो न्यू वेबसाईट को हेडलाईन हो </h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Trying another long headline to see if the trimming works.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a> *@
 </div>
 
 <h1 class="p-5">Some Category</h1>
 
-<div class="container-custom c2">
+<div class="container-custom c2 container row border p-5 align-content-center text-center">
     @foreach (var obj in Model.Skip(4).Take(1))
     {
         @if (obj.ImageLink is null)
@@ -87,14 +62,7 @@ following in the next row
             </h1>
         </a>
     }
-@*     <a class="news news-1" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h1>
-            This is today's headline.
-            If the headline is too long the remaining text will just disappear.
-            Just click on the link to go to the news page and read the long title.
-        </h1>
-    </a> *@
+
     @foreach (var obj in Model.Skip(5).Take(4))
     {
         @if (obj.ImageLink is null)
@@ -109,31 +77,11 @@ following in the next row
             <h6 class="date">@obj.CreatedDate</h6>
         </a>
     }
- @*    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Trying another long headline to see if the trimming works.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Trying another long headline to see if the trimming works.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a> *@
 </div>
 
 <h1 class="p-5">#Hashtag</h1>
 
-<div class="container-custom c3">
+<div class="container-custom c3 container row border p-5 align-content-center text-center">
     @foreach (var obj in Model.Skip(9).Take(6))
     {
         @if (obj.ImageLink is null)
@@ -148,30 +96,4 @@ following in the next row
             <h6 class="date">@obj.CreatedDate</h6>
         </a>
     }
-@*     <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <img src="~/images/static/placeHolderImage.png">
-        <h2>Trying another long headline to see if the trimming works.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a>
-    <a class="news news-x" href="news-page.html">
-        <h2>Headline goes here.</h2>
-        <h6 class="date">DD MMMM YY</h6>
-    </a> *@
 </div>
