@@ -13,9 +13,15 @@
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
-            <label asp-for="DisplayOrder" class="p-0"></label>
-            <input asp-for="DisplayOrder" type="text" class="form-control" />
-            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            <label asp-for="IsPriority" class="p-0"></label>
+            <div>
+                <input asp-for="IsPriority" type="radio" value="False" checked />
+                <label for="Flase">No</label>
+            </div>
+            <div>
+                <input asp-for="IsPriority" type="radio" value="True" />
+                <label for="True">Yes</label>
+            </div>
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="Author" class="p-0"></label>
