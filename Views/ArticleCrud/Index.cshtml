@@ -20,20 +20,16 @@
                 <th>
                     Article Title
                 </th>
-                <th>
-                    Display Order
-                </th>
                 <th></th>
             </tr>
         </thead>
-        @foreach (var obj in Model.OrderBy(u => u.DisplayOrder))
+        @foreach (var obj in Model.OrderByDescending(u => u.Id))
         {
             <tbody>
                 <tr>
                     <td>
                         <a asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id" target="_blank" rel="noopener noreferrer">@obj.Title</a>
                     </td>
-                    <td>@obj.DisplayOrder</td>
                     <td>
                         <div class="w-75 btn-group" role="group">
                             <a asp-controller="ArticleCrud" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-outline-dark mx-2">
