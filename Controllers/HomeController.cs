@@ -21,7 +21,7 @@ namespace NewsWebApp.Controllers
 //  Does the same for every other view by selecting the Articles based on their category.
         public IActionResult Index()
         {
-            List<Article> ArticleList = _db.Articles.OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(ArticleList);
         }
         [Authorize]
@@ -31,27 +31,27 @@ namespace NewsWebApp.Controllers
         }
         public IActionResult Politics()
         {
-            List<Article> PoliticsArticleList = _db.Articles.Where(u => u.Category == "Politics").OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> PoliticsArticleList = _db.Articles.Where(u => u.Category == "Politics").OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(PoliticsArticleList);
         }
         public IActionResult Entertainment()
         {
-            List<Article> EntertainmentArticleList = _db.Articles.Where(u => u.Category == "Entertainment").OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> EntertainmentArticleList = _db.Articles.Where(u => u.Category == "Entertainment").OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(EntertainmentArticleList);
         }
         public IActionResult Sports()
         {
-            List<Article> SportsArticleList = _db.Articles.Where(u => u.Category == "Sports").OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> SportsArticleList = _db.Articles.Where(u => u.Category == "Sports").OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(SportsArticleList);
         }
         public IActionResult Technology()
         {
-            List<Article> TechnologyArticleList = _db.Articles.Where(u => u.Category == "Technology").OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> TechnologyArticleList = _db.Articles.Where(u => u.Category == "Technology").OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(TechnologyArticleList);
         }
         public IActionResult Business()
         {
-            List<Article> BusinessArticleList = _db.Articles.Where(u => u.Category == "Business").OrderBy(obj => obj.DisplayOrder).Take(20).ToList();
+            List<Article> BusinessArticleList = _db.Articles.Where(u => u.Category == "Business").OrderByDescending(obj => obj.Id).Take(20).ToList();
             return View(BusinessArticleList);
         }
 

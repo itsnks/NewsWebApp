@@ -15,7 +15,7 @@ namespace NewsWebApp.Controllers
         }
         public IActionResult Index()
         {
-            List<Article> ArticleList = _db.Articles.OrderBy(obj => obj.DisplayOrder).ToList();
+            List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
             return View(ArticleList);
         }
         public IActionResult Create()
@@ -55,7 +55,7 @@ namespace NewsWebApp.Controllers
             {
                 _db.Articles.Update(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category Updated Successfully!";
+                TempData["success"] = "Article Updated Successfully!";
                 return RedirectToAction("Index", "ArticleCrud");
             }
             return View();
