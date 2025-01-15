@@ -1,43 +1,110 @@
 ﻿<!-- model takes the list of top 20 articles based on display order, displays titles of first 3 single row each, the next 2 in the same row and the 3
-    following in the next row
+following in the next row
 -->
 
 @{
     ViewData["Title"] = "Home";
 }
 @model List<Article>
-
 <div class="container">
-    @foreach (var obj in Model.Take(3))
-    {
-        <span class="container row mt-4 border p-5 mt-5 align-content-center text-center">
-            <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-                <h1><b>@obj.Title</b></h1>
-            </a>
-        </span>
-    }
-</div>
-
-<div class="container">
-    <div class="row">
-        @foreach (var obj in Model.Skip(3).Take(2))
-        {
-            <span class="col-md-6 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="article" asp-action="index" asp-route-id="@obj.Id"><h3><b>@obj.Title</b></h3></a>
-            </span>
-        }
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        @foreach (var obj in Model.Skip(5).Take(3))
-        {
-            <span class="col-md-4 row mt-4 border p-5 mt-5 text-center">
-                <a code style="text-decoration:none" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-                    <h3><b>@obj.Title</b></h3>
+    @foreach (var obj in Model){
+        if (obj.IsPriority){
+            <span class="container row mt-4 border p-5 align-content-center text-center">
+                <a asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                    <h1><b>@obj.Title</b></h1>
                 </a>
             </span>
         }
-    </div>
+    }
+</div>
+<h1 class="p-5">
+    Headlines
+</h1>
+<div class="container-custom c1 container row border p-5 align-content-center text-center">
+    @foreach (var obj in Model.Take(1)){
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h1 class="p-2">
+                @obj.Title
+            </h1>
+            <p class="description-text">
+                @obj.Description
+            </p>
+            <div>
+                <h6 class="author">@obj.Author</h6>
+                <h6 class="date">@obj.CreatedDate</h6>
+            </div>
+        </a>
+    }
+
+    @foreach (var obj in Model.Skip(1).Take(3))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            @* <h6 class="date">@obj.CreatedDate</h6> *@
+        </a>
+    }
+</div>
+
+<h1 class="p-5">Some Category</h1>
+
+<div class="container-custom c2 container row border p-5 align-content-center text-center">
+    @foreach (var obj in Model.Skip(4).Take(1))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h1 class="p-2">
+                @obj.Title
+            </h1>
+        </a>
+    }
+
+    @foreach (var obj in Model.Skip(5).Take(4))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            <h6 class="date">@obj.CreatedDate</h6>
+        </a>
+    }
+</div>
+
+<h1 class="p-5">#Hashtag</h1>
+
+<div class="container-custom c3 container row border p-5 align-content-center text-center">
+    @foreach (var obj in Model.Skip(9).Take(6))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            <h6 class="date">@obj.CreatedDate</h6>
+        </a>
+    }
 </div>

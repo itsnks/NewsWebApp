@@ -19,10 +19,12 @@
         <div>
             @Html.Raw(Model.Content)
         </div>
+        <div>
+            @if (Model.ImageLink is not null)
+            {
+                <img src="@Model.ImageLink" />
+            }
+        </div>
 
-        @if (Model.ImageLink is not null)
-        {
-            <img src="@Model.ImageLink" />
-        }
     </span>
 </div>
