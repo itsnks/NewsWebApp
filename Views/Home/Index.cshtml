@@ -6,6 +6,17 @@ following in the next row
     ViewData["Title"] = "Home";
 }
 @model List<Article>
+<div class="container">
+    @foreach (var obj in Model){
+        if (obj.IsPriority){
+            <span class="container row mt-4 border p-5 align-content-center text-center">
+                <a asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                    <h1><b>@obj.Title</b></h1>
+                </a>
+            </span>
+        }
+    }
+</div>
 <h1 class="p-5">
     Headlines
 </h1>
