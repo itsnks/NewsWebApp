@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NewsWebApp.Data;
-using NewsWebApp.Models;
+using NewsWebApp.Models.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
