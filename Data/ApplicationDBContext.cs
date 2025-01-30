@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using NewsWebApp.Models;
+using NewsWebApp.Models.Entities;
 
 namespace NewsWebApp.Data
 {

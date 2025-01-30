@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NewsWebApp.Models;
 using NewsWebApp.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using NewsWebApp.Models.Entities;
 
 namespace NewsWebApp.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
-using NewsWebApp.Models;
+using NewsWebApp.Models.Entities;
 
 namespace NewsWebApp.Controllers
 {

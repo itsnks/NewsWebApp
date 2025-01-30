@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models;
+using NewsWebApp.Models.Entities;
 using System.Diagnostics;
 
 namespace NewsWebApp.Controllers
