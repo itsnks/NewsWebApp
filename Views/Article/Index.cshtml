@@ -1,4 +1,5 @@
-﻿@model NewsWebApp.Models.Entities.Article
+﻿@using NewsWebApp.ViewModels
+@model ArticleViewModel
 
 @{
     ViewData["Title"] = Model.Title;
@@ -11,6 +12,9 @@
     <span>@Model.Description</span>
     <br />
     <span>@Model.CreatedDate</span>
+    <div>
+        <span>@Model.TimeSinceCreation</span>
+    </div>
     <div>
         <h5>
             @Model.Author
