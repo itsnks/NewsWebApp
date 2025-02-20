@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity;
-@inject SignInManager<Users> signInManager;
+@inject SignInManager<NewsWebApp.Models.Entities.Users> signInManager;
 
     <ul class="navbar-nav ms-auto">
     @if (signInManager.IsSignedIn(User))

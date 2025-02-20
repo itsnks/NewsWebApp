@@ -1,21 +1,25 @@
-﻿@model Article
+﻿@using NewsWebApp.ViewModels
+@model ArticleViewModel
+
 @{
     ViewData["Title"] = Model.Title;
 }
 
 <div class="container align-content-center border mt-4 p-5">
-    <span class="text-center  mt-4 p-5 ">
+    <div class="text-center  mt-4 p-5 ">
         <h1><b>@Model.Title</b></h1>
-    </span>
+    </div>
     <span>@Model.Description</span>
     <br />
     <span>@Model.CreatedDate</span>
-    <span>
+    <div>
+        <span>@Model.TimeSinceCreation</span>
+    </div>
+    <div>
         <h5>
             @Model.Author
         </h5>
-    </span>
-    <span>
+    </div>
         <div>
             @Html.Raw(Model.Content)
         </div>
@@ -25,6 +29,4 @@
                 <img src="@Model.ImageLink" />
             }
         </div>
-
-    </span>
 </div>

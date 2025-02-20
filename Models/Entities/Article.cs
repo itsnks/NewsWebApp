@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewsWebApp.Models
+namespace NewsWebApp.Models.Entities
 {
     public class Article
     {
@@ -16,11 +16,11 @@ namespace NewsWebApp.Models
         public string Content { get; set; }
         [DisplayName("Is this a High Priority Article?")]
         public bool IsPriority { get; set; }
-        public string ?Author { get; set; }
-        public string ?Category { get;set; }
-        public string ?Description { get; set; }
+        public string? Author { get; set; }
+        public string? Category { get; set; }
+        public string? Description { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         [DisplayName("Image URL (leave empty if there is no image)")]
-        public string ?ImageLink { get; set; }
+        public string? ImageLink { get; set; }
     }
 }
