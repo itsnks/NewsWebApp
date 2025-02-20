@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models.Entities;
+using NewsWebApp.ViewModels;
 
 namespace NewsWebApp.Controllers
 {
@@ -25,7 +26,8 @@ namespace NewsWebApp.Controllers
             {
                 return NotFound();
             }
-            return View(articleFromDB);
+            ArticleViewModel vm = new ArticleViewModel(articleFromDB);
+            return View(vm);
         }
     }
 }
