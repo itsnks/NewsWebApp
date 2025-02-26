@@ -8,12 +8,12 @@ Unregistered users can view articles while registered users can do the same, as 
 
 ## Prerequisites:
 * [.NET SDK](https://dotnet.microsoft.com/en-us/download)
-* [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+* [PostgreSQL](https://www.postgresql.org/download/)
 
 ## Usage
 
 ### Connection String
-* In `appsettings.json` change the connection string according to your SQL server connection string
+* In `appsettings.json` change the connection string based on your Postgres Username, password and port number
 
 ### Apply Migrations
 To Add Migrations, first open the Nuget Package Manager Console
@@ -33,7 +33,7 @@ Add-Migration MigrationName -Context UserDBContext
 
 ### Creating Articles
 * First, goto register and create a new user. This user will have `BROWSER` role by default.
-* Open the database using [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms)
+* Open the database using [PGAdmin](https://www.pgadmin.org/)
 * Open the `UserRoles` table and assign the **`RoleId`** of `CREATOR` to the **`UserId`** of the required user.
 * Log In as the user with `Creator` role and go to **Article Dashboard**
 * Go to **Create New Article** and here you can create the article
