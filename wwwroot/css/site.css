@@ -18,8 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  font-size: 22px;
+    margin-bottom: 60px;
+    font-family: "Mukta", sans-serif;
+    font-size: 20px;
 }
 
 .article-content-input {
@@ -71,6 +72,7 @@ p {
     margin: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 0 0 20px 0
 }
 
 h6, p{
@@ -89,6 +91,7 @@ h6, p{
 .date {
     text-align: right;
     align-self: flex-end;
+    margin-top: 10px;
 }
 
 /* ------------------------------------------------------- */
@@ -199,6 +202,67 @@ h6, p{
     }
 
 /* ------------------------------------------------------- */
+/* Article Page */
+/* ------------------------------------------------------- */
+    
+    .article {
+
+    }
+
+    .article .Title {
+        font-size: 40px;
+        line-height: 50px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .article .description-text {
+        border-top: 1px solid #ddd;
+        font-size: 24px;
+        line-height: 44px;
+        display: block;
+        color: #222;
+        margin-bottom: 15px;
+        padding-left: 15px;
+    }
+
+    .article .author-box {
+        border-top: 1px solid #ddd;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        margin: 0 0 0 15px;
+    }
+
+    .article .author-box .author-name {
+        font-weight: 700;
+        font-size: 18px;
+        display: block;
+        margin-top: 10px;
+        line-height: 22px;
+    }
+
+    .article .author-box .article-date {
+        font-size: 14px;
+        color: #6b6969;
+        display: block;
+        line-height: 22px;
+    }
+
+    .article .author-box .article-time-since-creation {
+        text-align: right;
+    }
+
+    .article .content {
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+        padding-top: 30px;
+        text-align: justify;
+    }
+
+    .article .content strong{
+        font-weight: bold;
+        text-decoration:underline;
+    }
 
 @media (max-width: 60em) {
     .c1 {
