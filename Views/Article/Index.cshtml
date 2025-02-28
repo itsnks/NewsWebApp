@@ -9,8 +9,10 @@
     <div class="text-center">
         <h1 class="Title"><b>@Model.Title</b></h1>
     </div>
-    <span class="description-text">@Model.Description</span>
-    <br />
+    @if (Model.Description is not null)
+    {
+        <span class="description-text">@Model.Description</span>
+    }
     <div class="author-box">
         <h2 class="author-name">
             @Model.Author
