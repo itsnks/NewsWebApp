@@ -217,12 +217,13 @@ h6, p{
     }
 
     .article .description-text {
+        padding-top: 10px;
         border-top: 1px solid #ddd;
-        font-size: 24px;
+        font-size: 22px;
+        text-align:center;
         line-height: 44px;
         display: block;
         color: #222;
-        margin-bottom: 15px;
         padding-left: 15px;
     }
 
