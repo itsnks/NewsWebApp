@@ -14,19 +14,19 @@
         <span class="description-text">@Model.Description</span>
     }
     <div class="author-box">
-        <h2 class="author-name">
+        <span class="author-name">
             @Model.Author
-        </h2>
+        </span>
         <span class="article-date">@Model.CreatedDate</span>
         <span class="article-time-since-creation">@Model.TimeSinceCreation</span>
-    </div>
-    <div class="content">
-        @Html.Raw(Model.Content)
     </div>
     <div>
         @if (Model.ImageLink is not null)
         {
-            <img src="@Model.ImageLink" />
+            <img src="@Model.ImageLink" alt="@Model.ImageDescription"/>
         }
+    </div>
+    <div class="content">
+        @Html.Raw(Model.Content)
     </div>
 </div>

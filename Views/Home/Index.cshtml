@@ -25,7 +25,7 @@
             obj.ImageLink = "/images/static/placeHolderImage.png";
         }
         <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-            <img src="@obj.ImageLink" />
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
             <h1 class="p-2">
                 @obj.Title
             </h1>
@@ -34,7 +34,7 @@
             </p>
             <div>
                 <h6 class="author">@obj.Author</h6>
-                <h6 class="date">@obj.TimeSinceCreation</h6>
+                <span class="date">@obj.TimeSinceCreation</span>
             </div>
         </a>
     }
@@ -46,11 +46,11 @@
             obj.ImageLink = "/images/static/placeHolderImage.png";
         }
         <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-            <img src="@obj.ImageLink" />
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
             <h2 class="p-2">
                 @obj.Title
             </h2>
-            <h6 class="date">@obj.TimeSinceCreation</h6>
+            <span class="date">@obj.TimeSinceCreation</span>
         </a>
     }
 </div>
@@ -65,7 +65,7 @@
             obj.ImageLink = "/images/static/placeHolderImage.png";
         }
         <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-            <img src="@obj.ImageLink" />
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
             <h1 class="p-2">
                 @obj.Title
             </h1>
@@ -98,7 +98,7 @@
             obj.ImageLink = "/images/static/placeHolderImage.png";
         }
         <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
-            <img src="@obj.ImageLink" />
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
             <h2 class="p-2">
                 @obj.Title
             </h2>
