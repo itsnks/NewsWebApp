@@ -62,14 +62,14 @@ a {
 }
 
 h1, h2, h6 {
-    margin: 0px;
+    margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 700;
 }
 
 p {
-    margin: 0px;
+    margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 0 20px 0
@@ -84,6 +84,11 @@ h6, p{
 }
 
 .author {
+    font-size: 16px;
+    font-weight: 400;
+    color: #222;
+    display: block;
+    margin-top: 10px;
     float: left;
     text-align: left;
 }
@@ -91,6 +96,9 @@ h6, p{
 .date {
     text-align: right;
     align-self: flex-end;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.48);
+    display: block;
     margin-top: 10px;
 }
 
@@ -125,19 +133,37 @@ h6, p{
     .c1 .news-1 {
         grid-area: 1 / 1 / 2 / 4;
         grid-template-rows: var(--c1-n1-rows);
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
     }
 
-        .c1 .news-1 img {
-            grid-area: 1 / 1 / 3 / 1;
-        }
+    .c1 .news-1 img {
+        grid-area: 1 / 1 / 3 / 1;
+    }
 
-        .c1 .news-1 h1 {
-            grid-area: 2 / 1 / 3 / 1;
-        }
+    .c1 .news-1 h1 {
+        grid-area: 2 / 1 / 3 / 1;
+    }
 
     .c1 .news-x {
         grid-template-rows: var(--c1-nx-rows);
     }
+
+    .c1 .news-x h2 {
+        margin-top: 15px;
+        font-weight: 700;
+        font-size: 1.375rem;
+        line-height: 32px;
+    }
+
+        .c1 .news-x .date {
+            text-align: right;
+            align-self: flex-end;
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.48);
+            display: block;
+            margin-top: 10px;
+        }
 
 /* ------------------------------------------------------- */
 /* Container 2 */
