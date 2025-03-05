@@ -9,8 +9,9 @@ namespace NewsWebApp.ViewModels
         public string Content { get; set; }
         public string? Author { get; set; }
         public string? Description { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedDate { get; set; } 
         public string? ImageLink { get; set; }
+        public string? ImageDescription { get; set; }
         public string TimeSinceCreation { get; set; }
 
         public ArticleViewModel(Article article)
@@ -22,6 +23,7 @@ namespace NewsWebApp.ViewModels
             Description = article.Description;
             CreatedDate = article.CreatedDate;
             ImageLink = article.ImageLink;
+            ImageDescription = article.ImageDescription;
             TimeSpan TimeElapsed = DateTime.UtcNow - article.CreatedDate;
             if (TimeElapsed.TotalMinutes < 60)
                 TimeSinceCreation = $"{Math.Floor(TimeElapsed.TotalMinutes)} minutes ago";
