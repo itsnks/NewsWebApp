@@ -5,28 +5,28 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="container align-content-center border mt-4 p-5">
-    <div class="text-center  mt-4 p-5 ">
-        <h1><b>@Model.Title</b></h1>
+<div class="article container align-content-center border mt-4 p-5">
+    <div class="text-center">
+        <h1 class="Title"><b>@Model.Title</b></h1>
     </div>
-    <span>@Model.Description</span>
-    <br />
-    <span>@Model.CreatedDate</span>
-    <div>
-        <span>@Model.TimeSinceCreation</span>
-    </div>
-    <div>
-        <h5>
+    @if (Model.Description is not null)
+    {
+        <span class="description-text">@Model.Description</span>
+    }
+    <div class="author-box">
+        <span class="author-name">
             @Model.Author
-        </h5>
+        </span>
+        <span class="article-date">@Model.CreatedDate</span>
+        <span class="article-time-since-creation">@Model.TimeSinceCreation</span>
     </div>
-        <div>
-            @Html.Raw(Model.Content)
-        </div>
-        <div>
-            @if (Model.ImageLink is not null)
-            {
-                <img src="@Model.ImageLink" />
-            }
-        </div>
+    <div>
+        @if (Model.ImageLink is not null)
+        {
+            <img src="@Model.ImageLink" alt="@Model.ImageDescription"/>
+        }
+    </div>
+    <div class="content">
+        @Html.Raw(Model.Content)
+    </div>
 </div>

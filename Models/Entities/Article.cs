@@ -21,5 +21,7 @@ namespace NewsWebApp.Models.Entities
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         [DisplayName("Image URL (leave empty if there is no image)")]
         public string? ImageLink { get; set; }
+        [DisplayName("Image Description")]
+        public string? ImageDescription { get; set; }
     }
 }
