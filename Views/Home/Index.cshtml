@@ -15,9 +15,7 @@
         }
     }
 </div>
-<h1 class="p-5">
-    Headlines
-</h1>
+
 <div class="container-custom c1 container row border p-5 align-content-center text-center">
     @foreach (var obj in Model.Take(1)){
         @if (obj.ImageLink is null)
@@ -45,7 +43,7 @@
         {
             obj.ImageLink = "/images/static/placeHolderImage.png";
         }
-        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">  
             <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
             <h2 class="p-2">
                 @obj.Title
@@ -83,7 +81,7 @@
             <h2 class="p-2">
                 @obj.Title
             </h2>
-            <h6 class="date">@obj.TimeSinceCreation</h6>
+            <span class="date">@obj.TimeSinceCreation</span>
         </a>
     }
 </div>
@@ -102,7 +100,83 @@
             <h2 class="p-2">
                 @obj.Title
             </h2>
-            <h6 class="date">@obj.TimeSinceCreation</h6>
+            <span class="date">@obj.TimeSinceCreation</span>
+        </a>
+    }
+</div>
+
+<h1 class="p-5">More News</h1>
+
+<div class="container-custom c4 container row border p-5 align-content-center text-center">
+    <div>
+        @foreach (var obj in Model.Skip(15).Take(1))
+        {
+
+            @if (obj.ImageLink is null)
+            {
+                obj.ImageLink = "/images/static/placeHolderImage.png";
+            }
+            <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+                <div>
+                    <img src="@obj.ImageLink" alt="@obj.ImageDescription" />
+                </div>
+                <div>
+                    <h1>
+                        @obj.Title
+                    </h1>
+                    <p class="description-text">
+                        @obj.Description
+                    </p>
+                </div>
+
+            </a>
+        }
+    </div>
+
+    @foreach (var obj in Model.Skip(16).Take(6))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription"/>
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+        </a>
+    }
+</div>
+
+<h1 class="p-5">More News</h1>
+
+<div class="container-custom c2 container row border p-5 align-content-center text-center">
+    @foreach (var obj in Model.Skip(22).Take(1))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-1" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" alt="@obj.ImageDescription" />
+            <h1 class="p-2">
+                @obj.Title
+            </h1>
+        </a>
+    }
+
+    @foreach (var obj in Model.Skip(23).Take(4))
+    {
+        @if (obj.ImageLink is null)
+        {
+            obj.ImageLink = "/images/static/placeHolderImage.png";
+        }
+        <a class="news news-x" asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id">
+            <img src="@obj.ImageLink" />
+            <h2 class="p-2">
+                @obj.Title
+            </h2>
+            <span class="date">@obj.TimeSinceCreation</span>
         </a>
     }
 </div>
