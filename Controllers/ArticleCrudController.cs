@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models.Entities;
+using NewsWebApp.ViewModels;
 
 namespace NewsWebApp.Controllers
 {
@@ -16,7 +17,8 @@ namespace NewsWebApp.Controllers
         public IActionResult Index()
         {
             List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
-            return View(ArticleList);
+            List<DashboardViewModel> ViewModelList = ArticleList.Select(u => new DashboardViewModel(u)).ToList();
+            return View(ViewModelList);
         }
         public IActionResult Create()
         {
