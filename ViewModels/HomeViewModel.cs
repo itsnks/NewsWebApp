@@ -9,7 +9,6 @@ namespace NewsWebApp.ViewModels
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Content { get; set; }
         public bool IsPriority { get; set; }
         public string? Author { get; set; }
         public string? Category { get; set; }
@@ -23,7 +22,6 @@ namespace NewsWebApp.ViewModels
         {
             Id = article.Id;
             Title = article.Title;
-            Content = article.Content;
             IsPriority = article.IsPriority;
             Author = article.Author;
             Category = article.Category;
