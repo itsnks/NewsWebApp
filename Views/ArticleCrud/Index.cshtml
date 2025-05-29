@@ -11,12 +11,26 @@
                 Article List
             </h2>
         </div>
+
         <div class="col-6 text-end">
             <a asp-controller="ArticleCrud" asp-action="Create" class="btn btn-primary">
                 <i class="bi bi-plus-circle-fill"></i>
                 Create New Article
             </a>
         </div>
+    </div>
+
+    <div class="row">
+        <form asp-controller="ArticleCrud" asp-action="Index">
+            <div class="row">
+                <div class="col-md-8">
+                    <input name="term" class="form-control" placeholder="Search by Title" />
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <table class="table table-bordered table-striped">

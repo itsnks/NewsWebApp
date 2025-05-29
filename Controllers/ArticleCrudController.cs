@@ -14,10 +14,13 @@ namespace NewsWebApp.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(string term="")
         {
+            term = string.IsNullOrEmpty(term)?"":term.ToLower();
+
             var articleData = new DashboardViewModel();
             var articles = (from article in _db.Articles
+                            where term=="" || article.Title.ToLower().StartsWith(term)
                             select new Article
                             {
                                 Id = article.Id,
