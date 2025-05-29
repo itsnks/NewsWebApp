@@ -16,9 +16,21 @@ namespace NewsWebApp.Controllers
         }
         public IActionResult Index()
         {
-            List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
+            var articleData = new DashboardViewModel();
+            var articles = (from article in _db.Articles
+                            select new Article
+                            {
+                                Id = article.Id,
+                                Title = article.Title
+
+                            }).OrderByDescending(u => u.Id);
+            articleData.Articles = articles;
+
+            return View(articleData);
+
+            /*List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
             List<DashboardViewModel> ViewModelList = ArticleList.Select(u => new DashboardViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View(ViewModelList);*/
         }
         public IActionResult Create()
         {

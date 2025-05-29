@@ -2,7 +2,7 @@
     ViewData["Title"] = "Article List";
 }
 
-@model List<NewsWebApp.ViewModels.DashboardViewModel>
+@model NewsWebApp.ViewModels.DashboardViewModel
 
 <div class="container">
     <div class="row pt-4">
@@ -28,7 +28,7 @@
                 <th></th>
             </tr>
         </thead>
-        @foreach (var obj in Model.OrderByDescending(u => u.Id))
+        @foreach (var obj in Model.Articles)
         {
             <tbody>
                 <tr>
