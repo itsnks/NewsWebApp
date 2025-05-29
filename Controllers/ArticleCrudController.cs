@@ -20,7 +20,7 @@ namespace NewsWebApp.Controllers
 
             var articleData = new DashboardViewModel();
             var articles = (from article in _db.Articles
-                            where term=="" || article.Title.ToLower().StartsWith(term)
+                            where term=="" || article.Title.ToLower().Contains(term)
                             select new Article
                             {
                                 Id = article.Id,
