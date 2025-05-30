@@ -14,7 +14,20 @@ namespace NewsWebApp.Controllers
         {
             _db = db;
         }
-        public IActionResult Index(string term="", string orderBy="")
+
+        // Index method can take input parameters term, OrderBy and CurrentPage to
+        // implement Search, Sort and Pagination functions respectively
+        // when a term is provided, looks for for any articles with titles containing the term
+        // when the hyperlink on top of Id column is clicked, sorts articles based on descending ID
+        // default currentPage is set to 1
+        // calculates the totalPages
+        // selects the 10 articles for any given current page skipping the articles
+        // for other previous pages and sends all the parameters to the viewmodel
+        // for pagination in the view, the for loop iterates from 1 to total pages
+        // the previous like hyperlinks to currentpage-1, the next hyperlinks to currentpage+1
+        // Todo: make the number of pages displayed in pagination be like 4-5 closest from current
+        // page instead of printing all the pages
+        public IActionResult Index(string term="", string orderBy="", int currentPage=1)
         {
             term = string.IsNullOrEmpty(term)?"":term.ToLower();
 
@@ -29,6 +42,7 @@ namespace NewsWebApp.Controllers
                                 Title = article.Title
 
                             }).OrderByDescending(u => u.Id);
+
             switch (orderBy)
             {
                 case "id_asc":
@@ -36,7 +50,18 @@ namespace NewsWebApp.Controllers
                 default:
                     articles = articles.OrderByDescending(u => u.Id); break;
             }
-            articleData.Articles = articles;
+
+            int totalRecords = articles.Count();
+            int pageSize = 10;
+            int totalPages = (int) Math.Ceiling(totalRecords / (double) pageSize);
+
+            articleData.Articles = articles.Skip((currentPage - 1) * pageSize).Take(pageSize);
+            articleData.CurrentPage = currentPage;
+            articleData.TotalPages = totalPages;
+            articleData.PageSize = pageSize;
+            articleData.Term = term;
+            articleData.OrderBy = orderBy;
+
             return View(articleData);
 
             /*List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
