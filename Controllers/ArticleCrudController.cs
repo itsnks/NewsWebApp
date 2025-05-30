@@ -63,10 +63,6 @@ namespace NewsWebApp.Controllers
             articleData.OrderBy = orderBy;
 
             return View(articleData);
-
-            /*List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
-            List<DashboardViewModel> ViewModelList = ArticleList.Select(u => new DashboardViewModel(u)).ToList();
-            return View(ViewModelList);*/
         }
         public IActionResult Create()
         {
