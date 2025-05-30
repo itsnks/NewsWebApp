@@ -6,6 +6,7 @@ namespace NewsWebApp.ViewModels
     {
         public IQueryable<Article> Articles { get; set; }
 
+        public  string IdSortOrder { get; set; }
 
         /*        public int Id { get; set; }
                 public string Title { get; set; }

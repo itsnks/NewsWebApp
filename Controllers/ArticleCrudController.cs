@@ -14,11 +14,13 @@ namespace NewsWebApp.Controllers
         {
             _db = db;
         }
-        public IActionResult Index(string term="")
+        public IActionResult Index(string term="", string orderBy="")
         {
             term = string.IsNullOrEmpty(term)?"":term.ToLower();
 
             var articleData = new DashboardViewModel();
+            articleData.IdSortOrder = string.IsNullOrEmpty(orderBy) ? "id_asc" : "";
+
             var articles = (from article in _db.Articles
                             where term=="" || article.Title.ToLower().Contains(term)
                             select new Article
@@ -27,8 +29,14 @@ namespace NewsWebApp.Controllers
                                 Title = article.Title
 
                             }).OrderByDescending(u => u.Id);
+            switch (orderBy)
+            {
+                case "id_asc":
+                    articles = articles.OrderBy(u => u.Id); break;
+                default:
+                    articles = articles.OrderByDescending(u => u.Id); break;
+            }
             articleData.Articles = articles;
-
             return View(articleData);
 
             /*List<Article> ArticleList = _db.Articles.OrderByDescending(obj => obj.Id).ToList();
@@ -39,6 +47,7 @@ namespace NewsWebApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Article obj)
         {
@@ -51,6 +60,7 @@ namespace NewsWebApp.Controllers
             }
             return View();
         }
+
         public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
@@ -77,6 +87,7 @@ namespace NewsWebApp.Controllers
             }
             return View();
         }
+
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)

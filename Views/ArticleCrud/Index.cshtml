@@ -37,15 +37,23 @@
         <thead>
             <tr>
                 <th>
+                    <a href="/ArticleCrud/Index?orderBy=@Model.IdSortOrder">Id</a>
+                </th>
+                <th>
                     Article Title
                 </th>
-                <th></th>
+                <th>
+                    Actions
+                </th>
             </tr>
         </thead>
         @foreach (var obj in Model.Articles)
         {
             <tbody>
                 <tr>
+                    <td>
+                        @obj.Id
+                    </td>
                     <td>
                         <a asp-controller="Article" asp-action="Index" asp-route-id="@obj.Id" target="_blank" rel="noopener noreferrer">@obj.Title</a>
                     </td>
