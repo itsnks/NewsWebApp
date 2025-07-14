@@ -33,13 +33,15 @@ namespace NewsWebApp.Controllers
 
             var articleData = new DashboardViewModel();
             articleData.IdSortOrder = string.IsNullOrEmpty(orderBy) ? "id_asc" : "";
+            articleData.DateSortOrder = string.IsNullOrEmpty(orderBy) ? "date_asc" : "";
 
             var articles = (from article in _db.Articles
                             where term=="" || article.Title.ToLower().Contains(term)
                             select new Article
                             {
                                 Id = article.Id,
-                                Title = article.Title
+                                Title = article.Title,
+                                CreatedDate = article.CreatedDate
 
                             }).OrderByDescending(u => u.Id);
 
@@ -47,6 +49,8 @@ namespace NewsWebApp.Controllers
             {
                 case "id_asc":
                     articles = articles.OrderBy(u => u.Id); break;
+                case "date_asc":
+                    articles = articles.OrderBy(u => u.CreatedDate); break;
                 default:
                     articles = articles.OrderByDescending(u => u.Id); break;
             }
