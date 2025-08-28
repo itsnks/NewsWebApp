@@ -21,6 +21,14 @@
         <span class="article-time-since-creation">@Model.TimeSinceCreation</span>
     </div>
     <div>
+        <a href="https://twitter.com/intent/tweet?text=@Model.Title&url=https://www.onlinekhabar.com/2025/08/1752352" target="_blank" rel="noopener noreferrer">
+            tweet
+        </a>
+        <a href="https://www.facebook.com/sharer.php?t=@Model.Title&u=https://www.onlinekhabar.com" target="_blank" rel="noopener noreferrer">
+            facebook
+        </a>
+    </div>
+    <div>
         @if (Model.ImageLink is not null)
         {
             <img src="@Model.ImageLink" alt="@Model.ImageDescription"/>
