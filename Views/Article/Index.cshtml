@@ -20,12 +20,13 @@
         <span class="article-date">@Model.CreatedDate</span>
         <span class="article-time-since-creation">@Model.TimeSinceCreation</span>
     </div>
-    <div>
+    <div class="share-box">
+        <i class="fa-solid icons share-icon fa-share-nodes"></i>
         <a href="https://twitter.com/intent/tweet?text=@Model.Title&url=https://www.onlinekhabar.com/2025/08/1752352" target="_blank" rel="noopener noreferrer">
-            tweet
+            <i class="fa-brands icons twitter fa-twitter"></i>
         </a>
         <a href="https://www.facebook.com/sharer.php?t=@Model.Title&u=https://www.onlinekhabar.com" target="_blank" rel="noopener noreferrer">
-            facebook
+            <i class="fa-brands icons facebook fa-facebook-f"></i>
         </a>
     </div>
     <div>
