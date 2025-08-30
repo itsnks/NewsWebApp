@@ -340,6 +340,35 @@ h6, p{
         text-align: right;
     }
 
+        .article .share-box {
+
+        }
+
+            .article .share-box .icons {
+                color: #fff;
+                font-size: 14px;
+                width: 32px;
+                height: 32px;
+                text-align: center;
+                line-height: 32px;
+                margin-right: 5px;
+                margin-bottom: 10px;
+                border-radius: 50px;
+                display: inline-block;
+            }
+
+            .article .share-box .share-icon{
+                background: black;
+            }
+
+            .article .share-box .twitter {
+                background: #00aced;
+            }
+
+            .article .share-box .facebook {
+                background: #3b5998;
+            }
+
     .article .content {
         border-top: 1px solid #ddd;
         margin-top: 10px;
