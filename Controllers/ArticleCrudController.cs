@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Markdig;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewsWebApp.Data;
 using NewsWebApp.Models.Entities;
@@ -13,6 +14,19 @@ namespace NewsWebApp.Controllers
         public ArticleCrudController(ApplicationDBContext db)
         {
             _db = db;
+        }
+
+        private Article ConvertToHtml(Article article)
+        {
+            article.Content = Markdown.ToHtml(article.Content);
+            return article;
+        }
+
+        private Article ConvertToMarkdown(Article article)
+        {
+            ReverseMarkdown.Converter converter = new ReverseMarkdown.Converter();
+            article.Content = converter.Convert(article.Content);
+            return article;
         }
 
         // Index method can take input parameters term, OrderBy and CurrentPage to
@@ -78,7 +92,7 @@ namespace NewsWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Articles.Add(obj);
+                _db.Articles.Add(ConvertToHtml(obj));
                 _db.SaveChanges();
                 TempData["success"] = "Article Created Successfully!";
                 return RedirectToAction("Index", "ArticleCrud");
@@ -97,7 +111,7 @@ namespace NewsWebApp.Controllers
             {
                 return NotFound();
             }
-            return View(articleFromDB);
+            return View(ConvertToMarkdown(articleFromDB));
         }
 
         [HttpPost]
@@ -105,7 +119,7 @@ namespace NewsWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Articles.Update(obj);
+                _db.Articles.Update(ConvertToHtml(obj));
                 _db.SaveChanges();
                 TempData["success"] = "Article Updated Successfully!";
                 return RedirectToAction("Index", "ArticleCrud");
@@ -125,6 +139,7 @@ namespace NewsWebApp.Controllers
             {
                 return NotFound();
             }
+            ConvertToMarkdown(articleFromDB);
             return View(articleFromDB);
         }
 
