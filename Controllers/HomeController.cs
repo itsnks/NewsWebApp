@@ -40,35 +40,35 @@ namespace NewsWebApp.Controllers
         {
             List<Article> PoliticsArticleList = _db.Articles.Where(u => u.Category == "Politics").OrderByDescending(obj => obj.Id).Take(30).ToList();
             List<HomeViewModel> ViewModelList = PoliticsArticleList.Select(u => new HomeViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View("Category",ViewModelList);
         }
 
         public IActionResult Entertainment()
         {
             List<Article> EntertainmentArticleList = _db.Articles.Where(u => u.Category == "Entertainment").OrderByDescending(obj => obj.Id).Take(20).ToList();
             List<HomeViewModel> ViewModelList = EntertainmentArticleList.Select(u => new HomeViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View("Category",ViewModelList);
         }
 
         public IActionResult Sports()
         {
             List<Article> SportsArticleList = _db.Articles.Where(u => u.Category == "Sports").OrderByDescending(obj => obj.Id).Take(20).ToList();
             List<HomeViewModel> ViewModelList = SportsArticleList.Select(u => new HomeViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View("Category", ViewModelList);
         }
 
         public IActionResult Technology()
         {
             List<Article> TechnologyArticleList = _db.Articles.Where(u => u.Category == "Technology").OrderByDescending(obj => obj.Id).Take(20).ToList();
             List<HomeViewModel> ViewModelList = TechnologyArticleList.Select(u => new HomeViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View("Category", ViewModelList);
         }
 
         public IActionResult Business()
         {
             List<Article> BusinessArticleList = _db.Articles.Where(u => u.Category == "Business").OrderByDescending(obj => obj.Id).Take(20).ToList();
             List<HomeViewModel> ViewModelList = BusinessArticleList.Select(u => new HomeViewModel(u)).ToList();
-            return View(ViewModelList);
+            return View("Category", ViewModelList);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
